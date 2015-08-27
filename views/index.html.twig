@@ -10,20 +10,31 @@
 
             <h2><center>The Ultimate Arena</center></h2>
             <hr>
+            {% if new == 1 %}
+                <h4><center>> new hero added! <</center></h4>
+            {% endif %}
 
             <div class="col-xs-2"></div>
 
             <div class="col-xs-8">
                 {% if players is not empty %}
-                    {% for stylist in players %}
-                        <a href="/players/{{ player.getId }}">{{ player.getName }}</a></li>
+
+                    <h4>Choose your hero:</h4>
+                    {% for player in players %}
+                    <form action="/arena/{{ player.getId }}" method="get">
+                        <button type="submit" class="arena">-></button>
+                    </form>
+                    {{ player.getName }}
+                    <br>
+                    <br>
                     {% endfor %}
                 {% endif %}
 
                 <h4>Create a new hero:</h4>
                 <form action="/heroes" method="post">
-                    <button type="submit" class="btn-xl arena">GO</button>
-                    <input id="name" name="name" type="text" placeholder="NAME" required autofocus>
+                    <button type="submit" class="arena">-></button>
+                    <input id="name" name="name" type="text"
+                        placeholder="NAME" maxlength="8" required autofocus>
                 </form>
             </div>
 

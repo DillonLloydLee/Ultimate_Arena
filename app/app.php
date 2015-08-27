@@ -18,10 +18,18 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
-    // Home Route:
+    // Home Route: Choose a hero.
     $app->get("/", function() use($app){
         $players = Player::getAll();
-        return $app['twig']->render('index.html.twig', array('players' => $players));
+        return $app['twig']->render('index.html.twig', array('players' => $players, 'new' => 0 ));
+    });
+
+    // Home Route: New hero added.
+    $app->post("/heroes", function() use($app){
+        $new_hero = new Player($_POST["name"]);
+        $new_hero->save();
+        $players = Player::getAll();
+        return $app['twig']->render('index.html.twig', array('players' => $players, 'new' => 1 ));
     });
 
     return $app;
