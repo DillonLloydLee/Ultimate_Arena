@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "emulogic";
+    src: url(emulogic.ttf);
+    }
+
+body {
+    background-color: black;
+    font-family: "emulogic";
+    color: #F5F6CE;
+}
+
+hr {
+    background-color: #F5F6CE;
+    height: 4px;
+}
+
+hr.small {
+    color: #A8A801;
+    background-color: #A8A801;
+    height: 2px;
+}
+
+form {
+    display: inline;
+}
+
+label {
+    color: #F5F6CE;
+}
+
+a {
+    color: #C3C312;
+}

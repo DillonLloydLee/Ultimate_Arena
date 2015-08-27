@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Ultimate Arena</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link href="arena.css" rel='stylesheet'>
+        <link href="/../arena.css" rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+
+            <h2><center>The Ultimate Arena</center></h2>
+            <hr>
+
+            <div class="col-xs-2"></div>
+
+            <div class="col-xs-8">
+                {% if players is not empty %}
+                    {% for stylist in players %}
+                        <a href="/players/{{ player.getId }}">{{ player.getName }}</a></li>
+                    {% endfor %}
+                {% endif %}
+
+                <h3>Create a new hero:</h3>
+            </div>
+
+            <div class="col-xs-2"></div>
+
+            <!-- <div class="col-xs-4">
+                <br>
+                <form action="/" method="get">
+                    <button type="submit" class="btn-lg" style="background-color:white; width:250px">HOME</button>
+                </form>
+                <form action="/students" method="get">
+                    <button type="submit" class="btn-lg btn-danger" style="width:250px">VIEW ALL STUDENTS</button>
+                </form>
+                <form action="/courses" method="get">
+                    <button type="submit" class="btn-lg btn-primary" style="width:250px">VIEW ALL COURSES</button>
+                </form>
+            </div> -->
+
+        </div>
+    </body>
+</html>
