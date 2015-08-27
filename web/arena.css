@@ -9,6 +9,14 @@ body {
     color: #F5F6CE;
 }
 
+button.arena {
+    background-color: black;
+}
+
+input {
+    color: black;
+}
+
 hr {
     background-color: #F5F6CE;
     height: 4px;
