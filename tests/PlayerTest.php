@@ -33,5 +33,18 @@
             $this->assertEquals([$test_player, $test_player2], $result);
         }
 
+        function test_find() {
+            $name = "Erdrick";
+            $test_player = new Player($name);
+            $test_player->save();
+
+            $name2 = "Link";
+            $test_player2 = new Player($name2);
+            $test_player2->save();
+
+            $result = Player::find($test_player->getId());
+
+            $this->assertEquals($test_player, $result);
+        }
     }
 ?>

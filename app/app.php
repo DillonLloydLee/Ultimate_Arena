@@ -32,5 +32,14 @@
         return $app['twig']->render('index.html.twig', array('players' => $players, 'new' => 1 ));
     });
 
+    // Menu Route: Hero selected.
+    $app->get("/menu/{id}", function($id) use($app){
+        $player = Player::find($id);
+        return $app['twig']->render('index.html.twig', array('player' => $player));
+    });
+
     return $app;
 ?>
+
+
+"/menu/{{ player.getId }}"

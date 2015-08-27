@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Ultimate Arena</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link href="arena.css" rel='stylesheet'>
+        <link href="/../arena.css" rel='stylesheet'>
+    </head>
+    <body>
+        <div class="container">
+
+            <h2><center>The Ultimate Arena</center></h2>
+            <hr>
+            <h3><center>{{ player.getName }}</center></h3>
+
+            <div class="col-xs-2"></div>
+            <div class="col-xs-3"></div>
+                <form action="/heroes" method="post">
+                    <button type="submit" class="arena">-></button>
+                    <input id="name" name="name" type="text" class="arena"
+                        placeholder="NAME" maxlength="8" required autofocus>
+                </form>
+            </div>
+            <div class="col-xs-5">
+
+                <!-- <div class="stat">
+                    <ul>
+                        <p>&nbsp;&nbsp;&nbsp;wins: {{ player.getWins }}</p>
+                        <p>&nbsp;&nbsp;&nbsp;hp: {{ player.getMaxHp }}</p>
+                    </ul>
+                </div>
+                <br> -->
+
+            </div>
+
+            <div class="col-xs-2"></div>
+
+        </div>
+    </body>
+</html>

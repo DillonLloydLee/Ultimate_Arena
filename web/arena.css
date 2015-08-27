@@ -11,10 +11,19 @@ body {
 
 button.arena {
     background-color: black;
+    font-size: 16px;
 }
 
-input {
-    color: black;
+input.arena {
+    background-color: black;
+    font-size: 16px;
+}
+
+div.name {
+    font-size: 24px;
+}
+div.stats {
+    font-size: 12px;
 }
 
 hr {
