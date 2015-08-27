@@ -21,7 +21,7 @@
         }
 
         function setHpAdd($hp_add) {
-            $this->hp_add = (string) $hp_add;
+            $this->hp_add = $hp_add;
         }
 
         function getHpAdd() {
@@ -29,7 +29,7 @@
         }
 
         function setDamage($damage) {
-            $this->damage = (string) $damage;
+            $this->damage = $damage;
         }
 
         function getDamage() {
@@ -41,12 +41,12 @@
         }
 
         function save() {
-            $GLOBALS["DB"]->exec("INSERT INTO item (name, hp_add, damage) VALUES ('{this->getName()}', {this->getHpAdd()}, {this->getDamage()};");
-            $this->id = $GLOBALS["DB"]->lastInsertId();
+            $GLOBALS['DB']->exec("INSERT INTO items (name, hp_add, damage) VALUES ('{$this->getName()}', {$this->getHpAdd()}, {$this->getDamage()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll() {
-            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM item;");
+            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM items;");
             $all = array();
             foreach($raw_info as $item) {
                 $name = $item["name"];
@@ -60,7 +60,7 @@
         }
 
         static function deleteAll() {
-            $GLOBALS["DB"]->exec("DELETE FROM item;");
+            $GLOBALS["DB"]->exec("DELETE FROM items;");
         }
     }
 

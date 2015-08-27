@@ -35,7 +35,7 @@
         }
 
         function setAttack($attack) {
-            $this->attack = (string) $attack;
+            $this->attack = $attack;
         }
 
         function getAttack() {
@@ -43,7 +43,7 @@
         }
 
         function setDefense($defense) {
-            $this->defense = (string) $defense;
+            $this->defense = $defense;
         }
 
         function getDefense() {
@@ -51,7 +51,7 @@
         }
 
         function setMaxHp($max_hp) {
-            $this->max_hp = (string) $max_hp;
+            $this->max_hp = $max_hp;
         }
 
         function getMaxHp() {
@@ -59,7 +59,7 @@
         }
 
         function setSpeed($speed) {
-            $this->speed = (string) $speed;
+            $this->speed = $speed;
         }
 
         function getSpeed() {
@@ -71,7 +71,7 @@
         }
 
         function save() {
-            $GLOBALS["DB"]->exec("INSERT INTO equipment (name, type, attack, defense, max_hp, speed) VALUES ('{this->getName()}', '{this->getType()}', {this->getAttack()}, {this->getDefense()}, {this->getMaxHp()}, {this->getSpeed()},)");
+            $GLOBALS['DB']->exec("INSERT INTO equipment (name, type, attack, defense, max_hp, speed) VALUES ('{$this->getName()}', '{$this->getType()}', {$this->getAttack()}, {$this->getDefense()}, {$this->getMaxHp()}, {$this->getSpeed()});");
             $this->id = $GLOBALS["DB"]->lastInsertId();
         }
 

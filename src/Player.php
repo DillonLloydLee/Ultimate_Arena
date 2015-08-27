@@ -9,7 +9,7 @@
         private $armor;
         private $id;
 
-        function __construct($name, $attack = 0, $defense = 0, $max_hp = 1, $speed = 0, $weapon = null, $armor = null, $id = null) {
+        function __construct($name, $attack = 0, $defense = 0, $max_hp = 1, $speed = 0, $weapon = "unequipped", $armor = "unequipped", $id = null) {
             $this->name = $name;
             $this->attack = $attack;
             $this->defense = $defense;
@@ -81,12 +81,12 @@
         }
 
         function save() {
-            $GLOBALS["DB"]->exec("INSERT INTO player (name, attack, defense, max_hp, speed) VALUES ('{this->getName()}', {this->getAttack()}, {this->getDefense()}, {this->getMaxHp()}, {this->getSpeed()}, '{this->getWeapon()}', '{this->getArmor()}')");
-            $this->id = $GLOBALS["DB"]->lastInsertId();
+            $GLOBALS['DB']->exec("INSERT INTO players (name, attack, defense, max_hp, speed, weapon, armor) VALUES ('{$this->getName()}', {$this->getAttack()}, {$this->getDefense()}, {$this->getMaxHp()}, {$this->getSpeed()}, '{$this->getWeapon()}', '{$this->getArmor()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll() {
-            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM player;");
+            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM players;");
             $all = array();
             foreach($raw_info as $player) {
                 $name = $player["name"];
@@ -104,7 +104,7 @@
         }
 
         static function deleteAll() {
-            $GLOBALS["DB"]->exec("DELETE FROM player;");
+            $GLOBALS["DB"]->exec("DELETE FROM players;");
         }
     }
 
